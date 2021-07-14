@@ -1,7 +1,13 @@
 import { FunctionComponent } from "react";
+import styled from "styled-components";
 import TimeSlotsColumn from "../../components/TimeSlotsColumn";
 import { useTimeBooking } from "../../hooks/useTimeBooking";
 import { CompanyTimeSlotsGrouped, TimeSlotDate } from "../../types/interfaces";
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+`;
 
 const Home: FunctionComponent = () => {
   const { companiesWithBookedSlots, bookSlot, dropSlot } = useTimeBooking();
@@ -20,7 +26,7 @@ const Home: FunctionComponent = () => {
   };
 
   return (
-    <div className="column-block">
+    <Wrapper>
       {companiesWithBookedSlots?.map((company) => (
         <TimeSlotsColumn
           key={`company_${company.id}`}
@@ -30,7 +36,7 @@ const Home: FunctionComponent = () => {
           }
         />
       ))}
-    </div>
+    </Wrapper>
   );
 };
 

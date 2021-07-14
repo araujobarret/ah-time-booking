@@ -1,17 +1,21 @@
 import { FunctionComponent } from "react";
+import styled from "styled-components";
 import { FallbackProps } from "react-error-boundary";
 
-const ErrorFallback: FunctionComponent<FallbackProps> = ({
-  error,
-  resetErrorBoundary,
-}) => {
+const Wrapper = styled.div`
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+`;
+
+const ErrorFallback: FunctionComponent<FallbackProps> = ({ error }) => {
   console.warn(error);
   return (
-    <div>
+    <Wrapper>
       <p>Sorry, something went wrong</p>
       <pre>{error.message}</pre>
-      <button onClick={resetErrorBoundary}>Try again</button>
-    </div>
+    </Wrapper>
   );
 };
 export default ErrorFallback;

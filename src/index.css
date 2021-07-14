@@ -11,25 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
-.column-block {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-.column {
-  border: 1px solid salmon;
-  background-color: bisque;
-  padding: 16px;
-}
-
-.badge {
-  background-color: lightcyan;
-  border: 1px solid lightblue;
-  border-radius: 4px;
-}
-
-.button-time {
-  width: 100%;
-  margin: 8px 0;
-}
