@@ -1,26 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { FunctionComponent, Suspense } from "react";
+import { ErrorBoundary } from "react-error-boundary";
+import ErrorFallback from "./components/core/ErrorFallback";
+import LoadingIndicator from "./components/core/LoadingIndicator";
+import HomeScreen from "./screens/Home";
+import "./App.css";
 
-function App() {
+const App: FunctionComponent = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ErrorBoundary FallbackComponent={ErrorFallback}>
+      <Suspense fallback={<LoadingIndicator />}>
+        <HomeScreen />
+      </Suspense>
+    </ErrorBoundary>
   );
-}
+};
 
 export default App;
